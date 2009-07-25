@@ -4,6 +4,7 @@ class CreateTickets < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.integer :user_id
+      t.string :status
       t.timestamps
     end
   end
