@@ -15,4 +15,16 @@ task :load_test_data => :environment do
   Ticket.all.each do |ticket|
     ticket.update_attribute :user_id, ids.rand
   end
+
+  %w{simple
+     complicated
+     web_design
+     javascript
+     performance
+     ie_compatibility}.each do |tag|
+
+    Ticket.all.sort{|a,b| rand-0.5}[0..99].each do |ticket|
+      Tag.create :ticket_id=>ticket.id, :name=>tag
+    end
+  end
 end
