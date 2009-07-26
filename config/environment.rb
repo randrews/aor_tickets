@@ -19,4 +19,5 @@ Rails::Initializer.run do |config|
   }
 
   config.gem "haml"
+  config.gem "dhaka"
 end
