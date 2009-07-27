@@ -1,7 +1,0 @@
-== Setup
-
-To set up this app, run the following:
-
-  rake db:migrate
-  rake load_test_data
-  ruby script/server

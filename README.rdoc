@@ -1,0 +1,38 @@
+== Setup
+
+To set up this app, run the following:
+
+  rake db:migrate
+  rake load_test_data
+  ruby script/server
+
+== Usage
+
+This app has a set of Tickets, owned by different Users. Each ticket has a set of Tags applied to it. You can put queries in the search field at the top, and search for subsets of the tickets.
+
+== Valid queries
+
+The simplest thing you can search for is a ticket ID, which, in the test data, is any number 100-300.
+
+You can also search on various attributes, which is the point of the app. A valid query is a set of clauses separated by "and", "or", or "not", or with parentheses.
+
+A clause can be any bare string (quoted or unquoted), in which case the clause matches all tickets with that tag, or it can be fieldName = value. Field names are any field on the Ticket model, or "owner" (to search for the login of the ticket's user).
+
+== Example queries
+
+  javascript and owner = randrews
+
+  id=122 or id=138
+
+  owner like "rand%" and not i18n-related
+
+== Handy rake tasks
+
+To see how the parser and lexer work, you can run these rake tasks at the command line:
+
+  rake parser:lex QUERY="javascript and owner=randrews"
+
+  rake parser:parse QUERY="a and not (b or c)"
+  open parse.dot.png
+
+(parser:parse requires Graphviz to be installed).
