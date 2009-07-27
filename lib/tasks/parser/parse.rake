@@ -11,5 +11,6 @@ namespace :parser do
     end
 
     `dot -Tpng -o#{filename}.png #{filename}`
+    `rm #{filename}`
   end
 end
