@@ -1,6 +1,7 @@
 task :load_test_data => :environment do
   Ticket.all.map &:destroy
   User.all.map &:destroy
+  Tag.all.map &:destroy
 
   sql = ActiveRecord::Base.connection
   File.open("sql/tickets.sql").each_line do |line|
