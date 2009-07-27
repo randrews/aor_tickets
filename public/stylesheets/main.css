@@ -1,5 +1,7 @@
+body { font-family: Verdana; }
+
 #main-div
-{ 
+{
   width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -7,3 +9,24 @@
 
 .odd {  background-color: #dddddd; }
 .even {  background-color: white; }
+
+#search-field textarea, #search-field input
+{
+  width: 100%;
+  font-size: 18pt;
+}
+
+table#results
+{
+  width: 100%;
+  border: 1px solid black;
+}
+
+#flash-error
+{
+  border: 3px solid #ff3333;
+  background-color: #ffaaaa;
+  font-size: 18pt;
+  padding: 5px;
+  margin-bottom: 10px;
+}

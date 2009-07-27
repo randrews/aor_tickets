@@ -1,9 +1,13 @@
 #search-field
   - form_tag :action=>'index' do
-    = text_field_tag :query, @query
+    = text_area_tag :query, @query, :rows=>5
+    %br
     = submit_tag 'Search'
 
-%table
+- if flash[:error]
+  #flash-error= h(flash[:error])
+
+%table#results
   %tr
     %th="Owner"
     %th="Description"

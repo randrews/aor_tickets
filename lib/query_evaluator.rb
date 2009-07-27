@@ -10,6 +10,12 @@ class QueryEvaluator < Dhaka::Evaluator
   def self.evaluate_query query
     ev = QueryEvaluator.new
     parse_tree = QueryParser.parse(QueryLexer.lex(query))
+
+    if parse_tree.is_a? Dhaka::ParseErrorResult
+      error = parse_tree.unexpected_token
+      raise "Unexpected \"#{error.value}\" at position #{error.input_position}"
+    end
+
     ev.evaluate(parse_tree)
     ev.results
   end
