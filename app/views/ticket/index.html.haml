@@ -7,9 +7,12 @@
 - if flash[:error]
   #flash-error= h(flash[:error])
 
+#row-count= "#{@tickets.size} tickets found"
+
 %table#results
   %tr
     %th="Owner"
+    %th="Status"
     %th="Description"
     %th="Tags"
     %th=""
@@ -18,6 +21,8 @@
     %tr{:class=>cycle("odd","even")}
       %td
         = ticket.user ? ticket.user.login : "-"
+      %td
+        = ticket.status
       %td
         = ticket.description.size > 50 ? ticket.description.first(50)+'...' : ticket.description
       %td

@@ -17,7 +17,7 @@ class QueryGrammar < Dhaka::Grammar
   end
 
   for_symbol('Clause') do
-    negated             %w{ not Clause }
+    negated             %w{ not Query }
     tag                 %w{ string }
     comparison          %w{ string Comparator Value }
   end

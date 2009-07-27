@@ -11,13 +11,17 @@ class QueryEvaluator < Dhaka::Evaluator
     ev = QueryEvaluator.new
     parse_tree = QueryParser.parse(QueryLexer.lex(query))
 
+
     if parse_tree.is_a? Dhaka::ParseErrorResult
       error = parse_tree.unexpected_token
       raise "Unexpected \"#{error.value}\" at position #{error.input_position}"
+    elsif parse_tree.is_a? Dhaka::TokenizerErrorResult
+      error = parse_tree.unexpected_char_index
+      raise "Syntax error at character #{error}"
+    else
+      ev.evaluate(parse_tree)
+      ev.results
     end
-
-    ev.evaluate(parse_tree)
-    ev.results
   end
 
   # All the IDs that there are (needed to do negation clauses)

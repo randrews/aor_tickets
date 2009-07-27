@@ -30,3 +30,9 @@ table#results
   padding: 5px;
   margin-bottom: 10px;
 }
+
+#row-count
+{
+  font-size: 14pt;
+  margin-bottom: 10px;
+}
