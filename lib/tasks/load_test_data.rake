@@ -16,7 +16,7 @@ task :load_test_data => :environment do
     ticket.update_attribute :user_id, ids.rand
   end
 
-  %w{simple
+  %w{i18n-related
      complicated
      web_design
      javascript
